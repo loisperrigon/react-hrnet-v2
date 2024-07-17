@@ -1,0 +1,55 @@
+@import "../../../scss/variable.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 2px solid $border;
+  position: relative;
+
+  .link {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    display: flex;
+    gap: 30px;
+    // Styles pour NavLink
+    a {
+      padding: 0;
+      text-decoration: none;
+      font-size: 20px;
+      color: $foreground;
+
+      &.active {
+        text-decoration: underline; // Soulignez le texte lorsque le lien est actif
+      }
+
+      &.pending {
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 50px; /* Garder le padding original pour les écrans plus grands */
+    h1 {
+      font-size: 45px; /* Taille de la police pour les écrans plus grands en largeur ou hauteur */
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 20px; /* Réduire le padding pour les écrans plus petits en largeur ou en hauteur */
+    h1 {
+      font-size: 3vw; /* Taille de la police en unité relative à la largeur de la fenêtre par défaut */
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 10px; /* Taille de la police pour les écrans plus grands en largeur ou hauteur */
+    h1 {
+      font-size: 26px; /* Taille de la police pour les écrans plus grands en largeur ou hauteur */
+    }
+  }
+}

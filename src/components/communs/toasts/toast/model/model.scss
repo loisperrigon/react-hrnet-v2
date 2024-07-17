@@ -1,0 +1,76 @@
+.toastFormEmployee {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
+  color: green !important;
+
+  &_textBad {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    h3 {
+      color: red !important;
+    }
+  }
+
+  &_textGood {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: green !important;
+  }
+
+  &_img {
+    height: 30px;
+    animation: animRebond 3.5s forwards;
+  }
+}
+
+@keyframes animRebond {
+  0% {
+    transform: translateY(-600%);
+    animation-timing-function: ease-in;
+    opacity: 1;
+  }
+  10% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  20% {
+    transform: translateY(-300%);
+    animation-timing-function: ease-in;
+  }
+  30% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  40% {
+    transform: translateY(-150%);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  60% {
+    transform: translateY(-75%);
+    animation-timing-function: ease-in;
+  }
+  70% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  80% {
+    transform: translateY(-37.5%);
+    animation-timing-function: ease-in;
+  }
+  90% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,61 @@
+@import "../../../../scss/variable.scss";
+
+.toast-container {
+  position: fixed;
+  right: 2.5rem; // équivalent à right-10
+  border: 1px solid $border;
+  padding: 1.25rem 2rem; // équivalent à py-5 px-8
+  background-color: $card;
+  text-align: center;
+  transition: opacity $transition ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+
+  &.slide-in-bottom {
+    animation: slide-in-bottom $transition ease-out;
+  }
+
+  @media screen and (max-width: 768px) {
+    top: 2.5rem; // équivalent à right-10
+    height: 100px;
+  }
+
+  @media screen and (max-width: 480px) {
+    top: 15px; // équivalent à right-10
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 30px);
+    height: 100px;
+  }
+}
+
+.toast-content {
+  display: flex;
+  gap: 1.25rem; // équivalent à gap-5
+  align-items: center;
+}
+
+.toast-close-icon {
+  position: absolute;
+  top: 0.5rem; // équivalent à top-2
+  right: 0.5rem; // équivalent à right-2
+  color: $destructive;
+  font-size: 1.25rem; // équivalent à text-xl
+  cursor: pointer;
+  transition: transform $transition ease-in-out;
+
+  &:hover {
+    transform: scale(1.25); // équivalent à hover:scale-125
+  }
+}
+
+@keyframes slide-in-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

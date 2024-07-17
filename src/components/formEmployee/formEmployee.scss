@@ -1,0 +1,112 @@
+@import "../../scss/variable.scss";
+
+.formEmployee {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 700px;
+  max-width: 700px;
+  padding: 2rem;
+  border: 1px solid $border;
+  gap: 2rem;
+  background-color: $card;
+  border-radius: 0.5rem;
+
+  &_title {
+    text-align: center;
+    font-size: 26px; /* Taille de la police en unité relative à la largeur de la fenêtre */
+  }
+
+  &_grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 1.5rem; /* Espacement vertical entre les lignes */
+    grid-column-gap: 2rem; /* Espacement horizontal entre les colonnes */
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  &_departement {
+    width: 200px;
+  }
+  &_button {
+    width: 10rem;
+
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+
+    focus: {
+      outline: 2px solid $ring;
+      outline-offset: 2px;
+    }
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    height: 2.5rem;
+    padding: 0 1rem;
+    background-color: $primary;
+    color: $primary-foreground;
+    &:hover {
+      background-color: $primary-hover;
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    width: 550px;
+    padding: 1rem;
+    &_title {
+      font-size: 20px; /* Taille de la police en unité relative à la largeur de la fenêtre */
+    }
+    &_grid {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      grid-row-gap: 1rem; /* Espacement vertical entre les lignes */
+      grid-column-gap: 1rem; /* Espacement horizontal entre les colonnes */
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 500px;
+    padding: 1rem;
+    &_title {
+      font-size: 20px; /* Taille de la police en unité relative à la largeur de la fenêtre */
+    }
+    &_grid {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      grid-row-gap: 1rem; /* Espacement vertical entre les lignes */
+      grid-column-gap: 1rem; /* Espacement horizontal entre les colonnes */
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 400px;
+    padding: 0.5rem;
+    &_title {
+      font-size: 20px; /* Taille de la police en unité relative à la largeur de la fenêtre */
+    }
+    &_grid {
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(1, 1fr);
+      grid-row-gap: 1rem; /* Espacement vertical entre les lignes */
+      grid-column-gap: 1rem; /* Espacement horizontal entre les colonnes */
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    &_departement {
+      width: 100%;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+}

@@ -49,6 +49,7 @@ const CustomDatePickerInput = ({
         onChange={(date) => onChange(date as Date)} // Assurez-vous de convertir date en Date ou Date | null
         customInput={<CustomInput />}
         className="custom-datepicker"
+        showYearDropdown
       />
     </div>
   );

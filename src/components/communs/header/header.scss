@@ -1,19 +1,23 @@
 @import "../../../scss/variable.scss";
 
 .header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes */
   align-items: center;
-  justify-content: center;
-
+  justify-items: center; /* Centre le contenu dans chaque cellule */
+  padding: 10px;
   border-bottom: 2px solid $border;
-  position: relative;
+
+  h1 {
+    grid-column: 2; /* Positionne le deuxième élément au centre */
+  }
 
   .link {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 20px;
+    grid-column: 3;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     gap: 30px;
     // Styles pour NavLink
     a {
@@ -31,25 +35,29 @@
       }
     }
   }
-
-  @media screen and (min-width: 768px) {
-    padding: 50px; /* Garder le padding original pour les écrans plus grands */
+  @media screen and (max-width: 1000px) {
+    padding: 10px; /* Réduire le padding pour les écrans plus petits en largeur ou en hauteur */
     h1 {
-      font-size: 45px; /* Taille de la police pour les écrans plus grands en largeur ou hauteur */
+      font-size: 30px; /* Taille de la police en unité relative à la largeur de la fenêtre par défaut */
+    }
+    .link {
+      gap: 10px;
+      a {
+        font-size: 15px;
+      }
     }
   }
 
   @media screen and (max-width: 768px) {
-    padding: 20px; /* Réduire le padding pour les écrans plus petits en largeur ou en hauteur */
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 10px; /* Réduire le padding pour les écrans plus petits en largeur ou en hauteur */
     h1 {
-      font-size: 3vw; /* Taille de la police en unité relative à la largeur de la fenêtre par défaut */
+      font-size: 30px; /* Taille de la police en unité relative à la largeur de la fenêtre par défaut */
     }
-  }
-
-  @media screen and (max-width: 480px) {
-    font-size: 10px; /* Taille de la police pour les écrans plus grands en largeur ou hauteur */
-    h1 {
-      font-size: 26px; /* Taille de la police pour les écrans plus grands en largeur ou hauteur */
+    .link {
+      font-size: 15px;
     }
   }
 }

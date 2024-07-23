@@ -30,11 +30,10 @@ function Filter({ column }: { column: Column<any, unknown> }) {
   );
 }
 
-// A typical debounced input react component
 function DebouncedInput({
   value: initialValue,
   onChange,
-  debounce = 0,
+  debounce = 100, // Augmenter le délai pour éviter les appels fréquents
   ...props
 }: {
   value: string | number;
@@ -60,7 +59,10 @@ function DebouncedInput({
       name={"search"}
       type={"text"}
       textInput={"Search..."}
-      handleChange={(e: any) => setValue(e.target.value)}
+      handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        setValue(e.target.value)
+      }
+      {...props}
     />
   );
 }
@@ -102,19 +104,21 @@ const columns = [
   }),
 ];
 
-// Composant ListUsers qui utilise useUsers pour obtenir les données des utilisateurs
 const ListUsers: React.FC = () => {
   const { users } = useUsers(); // Assurez-vous que useUsers retourne un objet avec un champ users
 
+  const [globalFilter, setGlobalFilter] = React.useState("");
+
   // Utilisation de useReactTable pour gérer les fonctionnalités de tableau
   const table = useReactTable({
-    data: users, // Utilisation des données users
-    columns, // Utilisation des colonnes définies ci-dessus
-    getCoreRowModel: getCoreRowModel(), // Modèle de base des lignes
-    getFilteredRowModel: getFilteredRowModel(), // Modèle de ligne filtrée
-    getSortedRowModel: getSortedRowModel(), // Modèle de ligne triée
-    getPaginationRowModel: getPaginationRowModel(), // Ajout du modèle de pagination
-    initialState: { pagination: { pageSize: 10 } }, // Optionnel, initialisation de la taille de page
+    data: users,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    initialState: { pagination: { pageSize: 10 }, globalFilter: globalFilter },
+    onGlobalFilterChange: setGlobalFilter,
   });
 
   return (
@@ -129,16 +133,20 @@ const ListUsers: React.FC = () => {
                   className={`listUsersHeaderCell ${
                     header.column.getCanSort() ? "sortable" : ""
                   }`}
-                  onClick={header.column.getToggleSortingHandler()}
                 >
-                  {flexRender(
-                    header.column.columnDef.header,
-                    header.getContext()
-                  )}
-                  {{
-                    asc: " 🔼",
-                    desc: " 🔽",
-                  }[header.column.getIsSorted() as string] ?? null}
+                  <div
+                    className="listUsersHeaderRowTitle"
+                    onClick={header.column.getToggleSortingHandler()}
+                  >
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+                    {{
+                      asc: " 🔼",
+                      desc: " 🔽",
+                    }[header.column.getIsSorted() as string] ?? null}
+                  </div>
                   {header.column.getCanFilter() ? (
                     <div className="searchColumn">
                       <Filter column={header.column} />
@@ -164,20 +172,18 @@ const ListUsers: React.FC = () => {
       <div className="pagination">
         <div className="pagination_button">
           <button
-            className="border rounded p-1"
             onClick={() => table.setPageIndex(0)}
             disabled={!table.getCanPreviousPage()}
           >
             {"<<"}
           </button>
           <button
-            className="border rounded p-1"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
             {"<"}
           </button>
-          <span className="flex items-center gap-1">
+          <span>
             <div>Page</div>
             <strong>
               {table.getState().pagination.pageIndex + 1} of{" "}
@@ -185,14 +191,12 @@ const ListUsers: React.FC = () => {
             </strong>
           </span>
           <button
-            className="border rounded p-1"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
             {">"}
           </button>
           <button
-            className="border rounded p-1"
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
             disabled={!table.getCanNextPage()}
           >
@@ -200,19 +204,15 @@ const ListUsers: React.FC = () => {
           </button>
         </div>
 
-        <div>
-          <span className="">
-            <Input
-              name={"Go to page"}
-              type={"text"}
-              textInput={"Go to page"}
-              handleChange={(e: any) => {
-                const page = e.target.value ? Number(e.target.value) - 1 : 0;
-                table.setPageIndex(page);
-              }}
-            />
-          </span>
-        </div>
+        <Input
+          name={"Go to page"}
+          type={"text"}
+          textInput={"Go to page"}
+          handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            const page = e.target.value ? Number(e.target.value) - 1 : 0;
+            table.setPageIndex(page);
+          }}
+        />
       </div>
     </>
   );

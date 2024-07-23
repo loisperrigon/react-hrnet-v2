@@ -12,3 +12,14 @@ export type User = {
 };
 
 export type Users = User[];
+
+export type Toast = {
+  id: number;
+  text: React.ReactNode;
+};
+
+export type ToastContextProps = {
+  toasts: Toast[];
+  showToast: (text: React.ReactNode) => void;
+  hideToast: (id: number) => void;
+};

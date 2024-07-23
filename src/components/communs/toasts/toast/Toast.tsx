@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { config, ENV } from "../../../../config";
-import { useToasts } from "../../../../hooks/useToasts";
+import { useToasts } from "../../../../context/contextToasts";
 import "./toast.scss";
 
 interface ToastProps {

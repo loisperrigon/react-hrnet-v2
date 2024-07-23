@@ -7,6 +7,7 @@ import Toasts from "./components/communs/toasts/Toasts";
 import "./scss/style.scss";
 
 import { PersistGate } from "redux-persist/integration/react";
+import { ToastProvider } from "./context/contextToasts";
 import { router } from "./routes/route";
 import { persistor, store } from "./store"; // Assurez-vous d'importer votre store depuis ./store
 
@@ -17,10 +18,12 @@ root.render(
   <React.StrictMode>
     {/* Enveloppez tout avec Provider et passez le store */}
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <RouterProvider router={router} />
-        <Toasts />
-      </PersistGate>
+      <ToastProvider>
+        <PersistGate loading={null} persistor={persistor}>
+          <RouterProvider router={router} />
+          <Toasts />
+        </PersistGate>
+      </ToastProvider>
     </Provider>
   </React.StrictMode>
 );

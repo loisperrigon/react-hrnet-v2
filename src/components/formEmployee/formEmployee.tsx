@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaCity } from "react-icons/fa";
 
-import { useToasts } from "../../hooks/useToasts";
+import { useToasts } from "../../context/contextToasts";
 import { useUsers } from "../../hooks/useUsers";
 import Input from "../communs/input/input";
 

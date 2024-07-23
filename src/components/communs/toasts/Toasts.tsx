@@ -1,14 +1,19 @@
-import { useToasts } from "../../../hooks/useToasts";
+// src/components/Toasts.tsx
+import React, { useEffect } from "react";
+import { useToasts } from "../../../context/contextToasts";
 import Toast from "./toast/Toast";
 
-const Toasts = () => {
+const Toasts: React.FC = () => {
   const { toasts } = useToasts();
+  useEffect(() => {
+    console.log(toasts);
+  }, [toasts]);
 
   return (
     <>
-      {toasts.map((toast, index) => {
-        return <Toast key={toast.id} data={toast} index={index} />;
-      })}
+      {toasts.map((toast, index) => (
+        <Toast key={toast.id} data={toast} index={index} />
+      ))}
     </>
   );
 };

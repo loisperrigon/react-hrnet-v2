@@ -8,9 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
+  padding: 0.625rem;
   border: 1px solid $border; /* Utilisation de la variable pour la bordure */
   cursor: pointer;
+  height: 100%;
   background-color: $input; /* Utilisation de la variable pour l'arrière-plan */
   color: $foreground;
   user-select: none;

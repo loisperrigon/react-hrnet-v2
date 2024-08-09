@@ -124,93 +124,97 @@ export default function FormEmployee() {
   return (
     <form onSubmit={handleSubmit} className={"formEmployee"}>
       <h2 className="formEmployee_title">Create Employee</h2>
-      <div className="formEmployee_grid">
-        <Input
-          name={"firstName"}
-          label={"First Name"}
-          type={"text"}
-          textInput={"Lola"}
-          handleChange={handleChange}
-        />
-        <Input
-          name={"lastName"}
-          label={"Last Name"}
-          type={"text"}
-          textInput={"Smitz"}
-          handleChange={handleChange}
-        />
 
-        <CustomDatePickerInput
-          name="dateOfBirth"
-          label="Date of Birth"
-          selected={formData.dateOfBirth}
-          onChange={(date: any) =>
-            handleDateChange("dateOfBirth", date as Date)
-          }
-          placeholder="Select date"
-        />
-        <CustomDatePickerInput
-          name="startDate"
-          label="Start Date"
-          selected={formData.startDate}
-          onChange={(date: any) => handleDateChange("startDate", date as Date)}
-          placeholder="Select date"
-        />
+      <div className="formEmployee_inputs">
+        <div className="formEmployee_grid">
+          <Input
+            name={"firstName"}
+            label={"First Name"}
+            type={"text"}
+            textInput={"Lola"}
+            handleChange={handleChange}
+          />
+          <Input
+            name={"lastName"}
+            label={"Last Name"}
+            type={"text"}
+            textInput={"Smitz"}
+            handleChange={handleChange}
+          />
 
-        <Input
-          name={"street"}
-          label={"Street"}
-          type={"text"}
-          textInput={"jeanne d'arc"}
-          handleChange={handleChange}
-        />
+          <CustomDatePickerInput
+            name="dateOfBirth"
+            label="Date of Birth"
+            selected={formData.dateOfBirth}
+            onChange={(date: any) =>
+              handleDateChange("dateOfBirth", date as Date)
+            }
+            placeholder="Select date"
+          />
+          <CustomDatePickerInput
+            name="startDate"
+            label="Start Date"
+            selected={formData.startDate}
+            onChange={(date: any) =>
+              handleDateChange("startDate", date as Date)
+            }
+            placeholder="Select date"
+          />
 
-        <Input
-          name={"city"}
-          label={"City"}
-          icon={<FaCity />}
-          type={"text"}
-          textInput={"Springfield"}
-          handleChange={handleChange}
-        />
+          <Input
+            name={"street"}
+            label={"Street"}
+            type={"text"}
+            textInput={"jeanne d'arc"}
+            handleChange={handleChange}
+          />
 
-        <div>
+          <Input
+            name={"city"}
+            label={"City"}
+            icon={<FaCity />}
+            type={"text"}
+            textInput={"Springfield"}
+            handleChange={handleChange}
+          />
+
+          <div>
+            <label htmlFor={"Departement"} className="input-label">
+              State
+            </label>
+            <div className="relative">
+              <Dropdown
+                options={states}
+                selectedOption={selectedState}
+                onOptionSelect={(option) => handleOptionSelect(option, "state")} // Gestion de la sélection pour l'état
+              />
+            </div>
+          </div>
+
+          <Input
+            name={"zipCode"}
+            label={"Zip code"}
+            type={"text"}
+            textInput={"74800"}
+            handleChange={handleChange}
+          />
+        </div>
+
+        <div className="formEmployee_departement">
           <label htmlFor={"Departement"} className="input-label">
-            State
+            Departement
           </label>
           <div className="relative">
             <Dropdown
-              options={states}
-              selectedOption={selectedState}
-              onOptionSelect={(option) => handleOptionSelect(option, "state")} // Gestion de la sélection pour l'état
+              options={departement}
+              selectedOption={selectedDepartment}
+              onOptionSelect={(option) =>
+                handleOptionSelect(option, "department")
+              } // Gestion de la sélection pour le département
             />
           </div>
         </div>
-
-        <Input
-          name={"zipCode"}
-          label={"Zip code"}
-          type={"text"}
-          textInput={"74800"}
-          handleChange={handleChange}
-        />
       </div>
-
-      <div className="formEmployee_departement">
-        <label htmlFor={"Departement"} className="input-label">
-          Departement
-        </label>
-        <div className="relative">
-          <Dropdown
-            options={departement}
-            selectedOption={selectedDepartment}
-            onOptionSelect={(option) =>
-              handleOptionSelect(option, "department")
-            } // Gestion de la sélection pour le département
-          />
-        </div>
-      </div>
-
       <button className="formEmployee_button" type="submit">
         Submit
       </button>

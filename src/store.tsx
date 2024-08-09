@@ -7,8 +7,6 @@ import storage from "redux-persist/lib/storage"; // localStorage as default stor
 
 import { userSlice } from "./features/sliceDataUsers";
 
-import { toastSlice } from "./features/sliceToast";
-
 // Configuration de redux-persist pour chaque slice
 const persistConfig = {
   key: "root",
@@ -18,7 +16,6 @@ const persistConfig = {
 
 // Combine tous les reducers
 const rootReducer = combineReducers({
-  toasts: toastSlice.reducer,
   users: userSlice.reducer,
 });
 

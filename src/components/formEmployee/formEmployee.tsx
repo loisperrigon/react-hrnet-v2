@@ -13,9 +13,10 @@ import "./formEmployee.scss";
 
 import "react-datepicker/dist/react-datepicker.css";
 import CustomDatePickerInput from "../communs/customDatePickerInput/customDatePickerInput";
-import Dropdown from "../communs/dropdown/dropDown";
-import { departement, states } from "./constante";
 
+import { Dropdown } from "dropdownopenclassroom";
+import "../../scss/dropdown.scss";
+import { departement, states } from "./constante";
 // Définition du type pour les données du formulaire
 interface FormData {
   firstName: string;

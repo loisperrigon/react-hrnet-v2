@@ -16,7 +16,6 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    {/* Enveloppez tout avec Provider et passez le store */}
     <Provider store={store}>
       <ToastProvider>
         <PersistGate loading={null} persistor={persistor}>

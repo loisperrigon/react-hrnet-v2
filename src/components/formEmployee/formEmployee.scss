@@ -4,22 +4,22 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 700px;
-  max-width: 700px;
-  padding: 2rem;
+
+  padding: 1rem;
   border: 1px solid $border;
-  gap: 2rem;
+  gap: 1.7rem;
   background-color: $card;
   border-radius: 0.5rem;
 
   &_title {
     text-align: center;
-    font-size: 26px; /* Taille de la police en unité relative à la largeur de la fenêtre */
+    font-size: 20px; /* Taille de la police en unité relative à la largeur de la fenêtre */
   }
 
   &_inputs {
     width: 100%;
     display: flex;
+
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -29,10 +29,8 @@
     display: grid;
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: 1.5rem; /* Espacement vertical entre les lignes */
-    grid-column-gap: 2rem; /* Espacement horizontal entre les colonnes */
-    padding-left: 2rem;
-    padding-right: 2rem;
+    grid-row-gap: 1rem; /* Espacement vertical entre les lignes */
+    grid-column-gap: 1.5rem; /* Espacement horizontal entre les colonnes */
   }
 
   &_departement {
@@ -100,8 +98,8 @@
   @media screen and (max-height: 636px) {
     &_inputs {
       overflow: auto;
-      max-height: 350px;
-      min-height: 350px;
+      max-height: 320px;
+      min-height: 320px;
     }
   }
 

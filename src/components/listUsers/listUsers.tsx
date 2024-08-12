@@ -11,6 +11,7 @@ import {
 import React from "react";
 import { useUsers } from "../../hooks/useUsers";
 import { User } from "../../types";
+import { compareDates } from "../../utils/utils";
 import Input from "../communs/input/input";
 import "./listUsers.scss";
 
@@ -77,11 +78,19 @@ const columns = [
   columnHelper.accessor("lastName", {
     id: "lastName",
     header: () => "Last Name",
-    cell: (info) => <i>{info.row.original.lastName}</i>,
+    cell: (info) => info.row.original.lastName,
+  }),
+  columnHelper.accessor("startDate", {
+    header: () => "Start Date",
+    cell: (info) => info.row.original.startDate,
+    sortingFn: (rowA, rowB, columnId) =>
+      compareDates(rowA.getValue(columnId), rowB.getValue(columnId)),
   }),
   columnHelper.accessor("dateOfBirth", {
     header: () => "Date of Birth",
     cell: (info) => info.row.original.dateOfBirth,
+    sortingFn: (rowA, rowB, columnId) =>
+      compareDates(rowA.getValue(columnId), rowB.getValue(columnId)),
   }),
   columnHelper.accessor("street", {
     header: () => "Street",
@@ -106,7 +115,7 @@ const columns = [
 ];
 
 const ListUsers: React.FC = () => {
-  const { users } = useUsers(); // Assurez-vous que useUsers retourne un objet avec un champ users
+  const { users } = useUsers();
 
   const [globalFilter, setGlobalFilter] = React.useState("");
 

@@ -16,6 +16,7 @@ import CustomDatePickerInput from "../communs/customDatePickerInput/customDatePi
 
 import { Dropdown } from "dropdownopenclassroom";
 import "../../scss/dropdown.scss";
+import { formatDate } from "../../utils/utils";
 import { departement, states } from "./constante";
 // Définition du type pour les données du formulaire
 interface FormData {
@@ -60,7 +61,7 @@ export default function FormEmployee() {
       userExists(
         formData.firstName.trim(),
         formData.lastName.trim(),
-        formData.dateOfBirth.toDateString()
+        formatDate(formData.dateOfBirth.toDateString())
       )
     )
       return "L'utilisateur existe deja";
@@ -110,8 +111,8 @@ export default function FormEmployee() {
       const convertedFormData = {
         //Pour le reduc qui utilise des string dans le local storage
         ...formData,
-        dateOfBirth: formData.dateOfBirth.toDateString(),
-        startDate: formData.startDate.toDateString(),
+        dateOfBirth: formatDate(formData.dateOfBirth.toDateString()),
+        startDate: formatDate(formData.startDate.toDateString()),
       };
 
       showToast(<ToastFormEmployeeGood firstname={formData.firstName} />);
@@ -149,7 +150,6 @@ export default function FormEmployee() {
             onChange={(date: any) =>
               handleDateChange("dateOfBirth", date as Date)
             }
-            placeholder="Select date"
           />
           <CustomDatePickerInput
             name="startDate"
@@ -158,7 +158,6 @@ export default function FormEmployee() {
             onChange={(date: any) =>
               handleDateChange("startDate", date as Date)
             }
-            placeholder="Select date"
           />
 
           <Input

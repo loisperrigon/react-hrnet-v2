@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./customDatePickerInput.scss";
@@ -9,7 +9,6 @@ interface CustomDatePickerInputProps {
   selected: Date;
   onChange: (date: Date | null) => void; // Modifier le type de onChange
   name: string;
-  placeholder?: string;
 }
 
 const CustomDatePickerInput = ({
@@ -18,26 +17,8 @@ const CustomDatePickerInput = ({
   selected,
   onChange,
   name,
-  placeholder,
 }: CustomDatePickerInputProps) => {
   const iconClasses = icon ? "input-with-icon" : "";
-
-  const CustomInput = forwardRef<HTMLInputElement, any>(
-    ({ value, onClick }, ref) => (
-      <div className="relative">
-        {icon && <div className="input-icon">{icon}</div>}
-        <input
-          name={name}
-          className={`input-field ${iconClasses}`}
-          onClick={onClick}
-          ref={ref}
-          value={value}
-          readOnly
-          placeholder={placeholder}
-        />
-      </div>
-    )
-  );
 
   return (
     <div>
@@ -46,9 +27,8 @@ const CustomDatePickerInput = ({
       </label>
       <DatePicker
         selected={selected}
-        onChange={(date) => onChange(date as Date)} // Assurez-vous de convertir date en Date ou Date | null
-        customInput={<CustomInput />}
-        className="custom-datepicker"
+        className={`input-field ${iconClasses}`}
+        onChange={(date) => onChange(date as Date)}
         showYearDropdown
       />
     </div>

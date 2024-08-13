@@ -37,10 +37,6 @@ interface FormData {
  * des utilisateurs et `useToasts` pour les notifications. Gère la validation des données,
  * les changements de champs, et l'affichage de toasts en cas de succès ou d'erreur.
  *
- * Fonctionnalités :
- * - Validation et envoi des données du formulaire.
- * - Gestion des champs de texte, dates et options de sélection.
- * - Affichage des notifications selon la validation.
  */
 export default function FormEmployee() {
   const { addUserToList, userExists } = useUsers();

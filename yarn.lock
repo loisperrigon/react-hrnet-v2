@@ -4146,13 +4146,10 @@ dotenv@^10.0.0:
   resolved "https://registry.npmjs.org/dotenv/-/dotenv-10.0.0.tgz"
   integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
-dropdownopenclassroom@^1.0.0, dropdownopenclassroom@^1.0.91:
-  version "1.0.91"
-  resolved "https://registry.npmjs.org/dropdownopenclassroom/-/dropdownopenclassroom-1.0.91.tgz"
-  integrity sha512-4bmzwiD+1YLRNuLkQuJx56cXGXVm4Ap5UDlBqNRwITOA9uBUYdhrKew2DFuFmWfzWYIAXKlgTlqv4JU1aJBrfg==
-  dependencies:
-    dropdownopenclassroom "^1.0.0"
-    react-icons "^5.2.1"
+dropdownopenclassroom@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/dropdownopenclassroom/-/dropdownopenclassroom-1.0.5.tgz"
+  integrity sha512-ktBN0kwKAg0c6jWrsuJDpN6rWH7H09fTp30UlPfFzcZV5PzjmMu+GZ4ocgoSNtmIjLlTYyyaSgLfUIQFzKipPw==
 
 duplexer@^0.1.2:
   version "0.1.2"

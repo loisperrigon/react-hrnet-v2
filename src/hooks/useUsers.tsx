@@ -14,11 +14,9 @@ export const useUsers = () => {
     dateOfBirth: string
   ) => {
     return users.some((user) => {
-      console.log(user.dateOfBirth, dateOfBirth); // Ajout du console.log pour vérification
-
       return (
-        user.firstName === firstName &&
-        user.lastName === lastName &&
+        user.firstName.toLowerCase() === firstName.toLowerCase() &&
+        user.lastName.toLowerCase() === lastName.toLowerCase() &&
         user.dateOfBirth === dateOfBirth
       );
     });

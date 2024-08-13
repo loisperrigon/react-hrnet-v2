@@ -167,6 +167,7 @@ const ListUsers: React.FC = () => {
             </div>
           ))}
         </div>
+
         <div className="listUsersBody">
           {table.getRowModel().rows.map((row) => (
             <div className="listUsersRow" key={row.id}>

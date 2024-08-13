@@ -1,0 +1,63 @@
+@import "../../scss/variable.scss";
+
+.dropdownopenclassroom-container {
+  position: relative;
+}
+
+.dropdownopenclassroom-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.625rem;
+  border: 1px solid $border; /* Utilisation de la variable pour la bordure */
+  cursor: pointer;
+  height: 100%;
+  background-color: $input; /* Utilisation de la variable pour l'arrière-plan */
+  color: $foreground;
+  user-select: none;
+  border-radius: 0.5rem;
+}
+
+.dropdownopenclassroom-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+}
+
+.dropdownopenclassroom-arrow.up {
+  transform: rotate(-360deg);
+}
+
+.dropdownopenclassroom-options {
+  /* Styles pour la barre de défilement */
+
+  position: absolute;
+  top: calc(100% + 5px); /* Position juste en dessous de l'en-tête */
+  left: 0;
+  width: 100%;
+  border-radius: 0.5rem;
+  max-height: 200px; /* Hauteur maximale des options */
+  overflow-y: auto;
+  border: 1px solid $border; /* Utilisation de la variable pour la bordure */
+  background-color: $input; /* Utilisation de la variable pour l'arrière-plan */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  color: $foreground;
+}
+
+.dropdownopenclassroom-options li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem; /* Ajustez le padding selon vos besoins */
+  cursor: pointer;
+  transition: background-color $transition ease; /* Utilisation de la variable pour la transition */
+}
+
+.dropdownopenclassroom-options li:hover {
+  background-color: $muted; /* Utilisation de la variable pour la couleur au survol */
+}

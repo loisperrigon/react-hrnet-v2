@@ -2,7 +2,7 @@
 
 ## Description
 
-Ce projet convertit l'application interne HRnet de jQuery vers React pour améliorer la performance et la stabilité. Les principaux éléments convertis incluent les pages et certains plugins jQuery.
+Ce projet vise a convertir l'application interne HRnet de jQuery vers React pour améliorer la performance et la stabilité.
 
 ## Prérequis
 

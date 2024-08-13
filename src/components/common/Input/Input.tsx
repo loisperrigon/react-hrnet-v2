@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import "./input.scss";
+import "./Input.scss";
 
 interface InputProps {
   name: string;
@@ -10,6 +10,18 @@ interface InputProps {
   handleChange: any;
 }
 
+/**
+ * Composant `Input`
+ *
+ * Un champ de saisie personnalisé avec une étiquette, une icône optionnelle et divers types d'entrées.
+ *
+ * @param {string} name - Identifiant unique du champ de saisie.
+ * @param {string} [label] - Étiquette optionnelle pour le champ.
+ * @param {ReactElement | null} [icon] - Icône optionnelle à afficher à gauche du champ.
+ * @param {string} type - Type de champ de saisie (ex: "text", "password").
+ * @param {string} textInput - Texte d'espace réservé dans le champ.
+ * @param {(event: React.ChangeEvent<HTMLInputElement>) => void} handleChange - Fonction de gestion des changements dans le champ de saisie.
+ */
 export default function Input({
   name,
   label,

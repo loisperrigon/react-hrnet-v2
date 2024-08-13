@@ -1,8 +1,8 @@
-import Header from "../../components/communs/header/header";
+import Header from "../../components/common/Header/Header";
 
-import ListUsers from "../../components/listUsers/listUsers";
+import ListUsers from "../../components/ListUsers/ListUsers";
 
-import "./users.scss";
+import "./Users.scss";
 
 export default function Users() {
   return (

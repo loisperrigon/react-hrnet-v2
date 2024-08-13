@@ -1,6 +1,14 @@
 {
   "name": "react-hrnet-v2",
   "version": "0.1.0",
+  "description": "Une application React pour la gestion des dossiers des employés, mise à jour depuis jQuery.",
+  "keywords": [
+    "react",
+    "hrnet",
+    "gestion",
+    "employés"
+  ],
+  "author": "PERRIGON Lois <lois.perrigon@gmail.com>",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",

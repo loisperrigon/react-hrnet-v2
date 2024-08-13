@@ -1,8 +1,8 @@
 // routes.js
 import { createBrowserRouter } from "react-router-dom";
 
-import Formulaire from "../Pages/formulaire/formulaire";
-import Users from "../Pages/users/users";
+import Formulaire from "../pages/Formulaire/Formulaire";
+import Users from "../pages/Users/Users";
 const routerConfig = [
   {
     path: "/",

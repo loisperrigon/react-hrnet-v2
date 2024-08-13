@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
 import { config, ENV } from "../../../../config";
-import { useToasts } from "../../../../context/contextToasts";
-import "./toast.scss";
+import { useToasts } from "../../../../context/ToastContext";
+import "./Toast.scss";
 
 interface ToastProps {
   data: {
@@ -12,6 +12,17 @@ interface ToastProps {
   index: number;
 }
 
+/**
+ * Composant `Toast`
+ *
+ * Affiche une notification temporaire avec un message. Les notifications sont positionnées
+ * en bas et s'effacent après un certain temps. Chaque toast peut être fermé manuellement.
+ *
+ * @param {Object} data - Données du toast.
+ * @param {number} data.id - Identifiant unique du toast.
+ * @param {React.ReactNode} data.text - Contenu du message du toast.
+ * @param {number} index - Position du toast pour le calcul du margin et du z-index.
+ */
 const Toast: React.FC<ToastProps> = ({ data, index }) => {
   const [transition, setTransition] = useState(0);
   const { hideToast } = useToasts();

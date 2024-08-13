@@ -1,7 +1,7 @@
 import React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import "./customDatePickerInput.scss";
+import "./CustomDatePickerInput.scss";
 
 interface CustomDatePickerInputProps {
   label: string;
@@ -11,6 +11,18 @@ interface CustomDatePickerInputProps {
   name: string;
 }
 
+/**
+ * Composant `CustomDatePickerInput`
+ *
+ * Un composant de sélection de date personnalisé avec une étiquette et une icône optionnelle.
+ * Utilise `react-datepicker` pour afficher un calendrier pour la sélection de date.
+ *
+ * @param {string} label - L'étiquette du champ de date.
+ * @param {React.ReactElement | null} [icon] - Icône optionnelle à afficher avec le champ.
+ * @param {Date} selected - La date sélectionnée actuellement.
+ * @param {(date: Date | null) => void} onChange - Fonction appelée lors du changement de date.
+ * @param {string} name - Identifiant du champ de date.
+ */
 const CustomDatePickerInput = ({
   label,
   icon,

@@ -108,6 +108,11 @@ button {
   font-weight: 500; // équivalent à font-medium
   outline: none;
   transition: all 0.3s;
+  height: 2.5rem; // équivalent à h-10
+  padding: 0 1rem; // équivalent à px-4 py-2
+  width: 100%;
+  background-color: $primary;
+  color: $primary-foreground;
   focus: {
     outline: 2px solid $ring; // équivalent à focus-visible:ring-2
     outline-offset: 2px; // équivalent à focus-visible:ring-offset-2
@@ -116,11 +121,6 @@ button {
     pointer-events: none;
     opacity: 0.5;
   }
-  height: 2.5rem; // équivalent à h-10
-  padding: 0 1rem; // équivalent à px-4 py-2
-  width: 100%;
-  background-color: $primary;
-  color: $primary-foreground;
   &:hover {
     background-color: $primary-hover;
   }
@@ -145,6 +145,11 @@ a {
   font-weight: 500; // équivalent à font-medium
   outline: none;
   transition: all 0.3s;
+  text-decoration: underline;
+  text-decoration-thickness: 4px; // équivalent à underline-offset-4
+  height: 2.5rem; // équivalent à h-10
+  padding: 0 1rem; // équivalent à px-4 py-2
+  color: $primary;
   focus: {
     outline: 2px solid $ring; // équivalent à focus-visible:ring-2
   }
@@ -152,11 +157,7 @@ a {
     pointer-events: none;
     opacity: 0.5;
   }
-  text-decoration: underline;
-  text-decoration-thickness: 4px; // équivalent à underline-offset-4
-  height: 2.5rem; // équivalent à h-10
-  padding: 0 1rem; // équivalent à px-4 py-2
-  color: $primary;
+
   &:hover {
     text-decoration: underline;
   }

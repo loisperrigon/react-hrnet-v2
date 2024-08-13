@@ -1,8 +1,8 @@
-import Header from "../../components/communs/header/header";
+import Header from "../../components/common/Header/Header";
 
-import FormEmployee from "../../components/formEmployee/formEmployee";
+import FormEmployee from "../../components/FormEmployee/FormEmployee";
 
-import "./formulaire.scss";
+import "./Formulaire.scss";
 
 export default function Formulaire() {
   return (

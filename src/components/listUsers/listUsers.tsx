@@ -12,8 +12,8 @@ import React from "react";
 import { useUsers } from "../../hooks/useUsers";
 import { User } from "../../types";
 import { compareDates } from "../../utils/utils";
-import Input from "../communs/input/input";
-import "./listUsers.scss";
+import Input from "../common/Input/Input";
+import "./ListUsers.scss";
 
 // Création d'un helper de colonne typé pour l'entité User
 const columnHelper = createColumnHelper<User>();
@@ -31,6 +31,13 @@ function Filter({ column }: { column: Column<any, unknown> }) {
   );
 }
 
+/**
+ * Composant `DebouncedInput`
+ *
+ * Champ de saisie avec délai de détection de changement (debounce) pour réduire
+ * le nombre d'appels à la fonction de changement (`onChange`). Utile pour des
+ * champs de recherche où la mise à jour fréquente n'est pas nécessaire.
+ */
 function DebouncedInput({
   value: initialValue,
   onChange,
@@ -114,6 +121,14 @@ const columns = [
   }),
 ];
 
+/**
+ * Composant `ListUsers`
+ *
+ * Affiche une liste paginée et filtrable d'utilisateurs sous forme de tableau.
+ * Utilise la bibliothèque `@tanstack/react-table` pour gérer les fonctionnalités
+ * de tri, de filtrage, de pagination, et d'affichage des données des utilisateurs.
+ *
+ */
 const ListUsers: React.FC = () => {
   const { users } = useUsers();
 

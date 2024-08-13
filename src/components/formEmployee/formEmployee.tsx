@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { FaCity } from "react-icons/fa";
-import { useToasts } from "../../context/contextToasts";
+import { useToasts } from "../../context/ToastContext";
 import { useUsers } from "../../hooks/useUsers";
-import Input from "../communs/input/input";
+import Input from "../common/Input/Input";
 
-import { ToastFormEmployeeBad } from "../communs/toasts/toast/model/bad";
-import { ToastFormEmployeeGood } from "../communs/toasts/toast/model/good";
-import "./formEmployee.scss";
+import { ToastFormEmployeeBad } from "../common/Toasts/Toast/model/bad";
+import { ToastFormEmployeeGood } from "../common/Toasts/Toast/model/good";
+import "./FormEmployee.scss";
 
 //Calendar
 
 import "react-datepicker/dist/react-datepicker.css";
-import CustomDatePickerInput from "../communs/customDatePickerInput/customDatePickerInput";
+import CustomDatePickerInput from "../common/CustomDatePickerInput/CustomDatePickerInput";
 
 import { Dropdown } from "dropdownopenclassroom";
 import "../../scss/dropdown.scss";
 import { formatDate } from "../../utils/utils";
-import { departement, states } from "./constante";
+import { departement, states } from "./constants";
 // Définition du type pour les données du formulaire
 interface FormData {
   firstName: string;
@@ -30,6 +30,18 @@ interface FormData {
   department: string;
 }
 
+/**
+ * Composant `FormEmployee`
+ *
+ * Affiche un formulaire pour créer un nouvel employé, utilisant `useUsers` pour la gestion
+ * des utilisateurs et `useToasts` pour les notifications. Gère la validation des données,
+ * les changements de champs, et l'affichage de toasts en cas de succès ou d'erreur.
+ *
+ * Fonctionnalités :
+ * - Validation et envoi des données du formulaire.
+ * - Gestion des champs de texte, dates et options de sélection.
+ * - Affichage des notifications selon la validation.
+ */
 export default function FormEmployee() {
   const { addUserToList, userExists } = useUsers();
   const { showToast } = useToasts();
@@ -45,6 +57,16 @@ export default function FormEmployee() {
     department: "",
   });
 
+  /**
+   * Fonction `validateForm`
+   *
+   * Valide les données du formulaire. Retourne `true` si toutes les données sont valides, sinon
+   * un message d'erreur correspondant au champ invalide. Vérifie les champs obligatoires, les dates,
+   * et l'existence de l'utilisateur.
+   *
+   * @param formData - Données du formulaire à valider.
+   * @returns `true` si valide, sinon un message d'erreur.
+   */
   function validateForm(formData: FormData): true | string {
     if (!formData.firstName.trim()) return "First Name is required.";
     if (!formData.lastName.trim()) return "Last Name is required.";
@@ -72,6 +94,13 @@ export default function FormEmployee() {
     "Choose a department"
   );
 
+  /**
+   * Fonction `handleChange`
+   *
+   * Met à jour les données du formulaire en fonction des changements dans les champs de texte.
+   *
+   * @param e - Événement de changement de l'élément input.
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -80,6 +109,14 @@ export default function FormEmployee() {
     }));
   };
 
+  /**
+   * Fonction `handleDateChange`
+   *
+   * Met à jour les données du formulaire avec la nouvelle date sélectionnée.
+   *
+   * @param name - Nom du champ de date.
+   * @param date - Nouvelle date sélectionnée.
+   */
   const handleDateChange = (name: keyof FormData, date: Date) => {
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -87,6 +124,14 @@ export default function FormEmployee() {
     }));
   };
 
+  /**
+   * Fonction `handleOptionSelect`
+   *
+   * Met à jour les données du formulaire et les états sélectionnés pour les dropdowns.
+   *
+   * @param option - Option sélectionnée.
+   * @param type - Type de dropdown ('state' ou 'department').
+   */
   const handleOptionSelect = (option: string, type: "state" | "department") => {
     if (type === "state") {
       setSelectedState(option);
@@ -103,6 +148,14 @@ export default function FormEmployee() {
     }
   };
 
+  /**
+   * Fonction `handleSubmit`
+   *
+   * Valide les données du formulaire, affiche un toast de succès ou d'erreur, et soumet les données
+   * si elles sont valides.
+   *
+   * @param e - Événement de soumission du formulaire.
+   */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const validationResult = validateForm(formData);

@@ -3,7 +3,6 @@ import { FaCity } from "react-icons/fa";
 import { useToasts } from "../../context/contextToasts";
 import { useUsers } from "../../hooks/useUsers";
 import Input from "../communs/input/input";
-import "./dropdown.scss";
 
 import { ToastFormEmployeeBad } from "../communs/toasts/toast/model/bad";
 import { ToastFormEmployeeGood } from "../communs/toasts/toast/model/good";

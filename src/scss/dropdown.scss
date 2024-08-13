@@ -1,10 +1,10 @@
 @import "./variable.scss";
 
-.dropdownopenclassroom-container {
+.dropdownOpenclassroom-container {
   position: relative;
 }
 
-.dropdownopenclassroom-header {
+.dropdownOpenclassroom-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,18 +18,18 @@
   border-radius: 0.5rem;
 }
 
-.dropdownopenclassroom-arrow {
+.dropdownOpenclassroom-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 0.5rem;
 }
 
-.dropdownopenclassroom-arrow.up {
+.dropdownOpenclassroom-arrow.up {
   transform: rotate(-360deg);
 }
 
-.dropdownopenclassroom-options {
+.dropdownOpenclassroom-options {
   /* Styles pour la barre de défilement */
 
   position: absolute;
@@ -49,7 +49,7 @@
   color: $foreground;
 }
 
-.dropdownopenclassroom-options li {
+.dropdownOpenclassroom-options li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,6 +58,6 @@
   transition: background-color $transition ease; /* Utilisation de la variable pour la transition */
 }
 
-.dropdownopenclassroom-options li:hover {
+.dropdownOpenclassroom-options li:hover {
   background-color: $muted; /* Utilisation de la variable pour la couleur au survol */
 }

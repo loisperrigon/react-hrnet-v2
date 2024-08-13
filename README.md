@@ -7,8 +7,10 @@ Ce projet vise a convertir l'application interne HRnet de jQuery vers React pour
 ## Prérequis
 
 Node.js (14.x ou supérieur)
-npm (6.x ou supérieur)
-Installation
+React (18.x ou supérieur)
+
+## Installation
+
 Cloner le dépôt : https://github.com/loisperrigon/react-hrnet-v2
 
 ```bash
